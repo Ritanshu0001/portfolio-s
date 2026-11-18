@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Taanvi Sharma — Finance Portfolio</title>
+<meta name="description" content="Taanvi Sharma — MBA (Finance) student at Lovely Professional University. Financial analysis, corporate finance, forecasting and Excel modelling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%2314213d'/><text x='32' y='43' font-family='Georgia,serif' font-size='30' fill='%23e9c46a' text-anchor='middle'>TS</text></svg>">
+<style>
+  :root {
+    --bg: #f7f3ec;
+    --surface: #ffffff;
+    --ink: #14213d;
+    --ink-soft: #4a5468;
+    --muted: #7b8193;
+    --line: #e4ddd0;
+    --accent: #b8862b;
+    --accent-soft: #f3e6c8;
+    --hero-bg: #14213d;
+    --hero-ink: #f7f3ec;
+    --hero-muted: #b9c0d0;
+    --shadow: 0 1px 2px rgba(20,33,61,.06), 0 8px 24px rgba(20,33,61,.08);
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1526; --surface: #161f35; --ink: #eef0f5; --ink-soft: #bcc3d3;
+      --muted: #8a93a8; --line: #26304a; --accent: #e3b45a; --accent-soft: #2b2a24;
+      --hero-bg: #0a1020; --hero-ink: #f7f3ec; --hero-muted: #9aa3b8;
+      --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e1526; --surface: #161f35; --ink: #eef0f5; --ink-soft: #bcc3d3;
+    --muted: #8a93a8; --line: #26304a; --accent: #e3b45a; --accent-soft: #2b2a24;
+    --hero-bg: #0a1020; --hero-ink: #f7f3ec; --hero-muted: #9aa3b8;
+    --shadow: 0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.65 Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+  }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: Fraunces, Georgia, serif; font-weight: 600; letter-spacing: -.01em; margin: 0; }
+  .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  @media (min-width: 720px) { .wrap { padding: 0 32px; } }
+
+  /* Nav */
+  .nav {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--hero-bg) 92%, transparent);
+    backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,.06);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+  .brand { font-family: Fraunces, serif; color: var(--hero-ink); text-decoration: none; font-size: 1.15rem; }
+  .brand span { color: var(--accent); }
+  .nav-links { display: none; gap: 26px; list-style: none; margin: 0; padding: 0; }
+  .nav-links a { color: var(--hero-muted); text-decoration: none; font-size: .9rem; transition: color .2s; }
+  .nav-links a:hover { color: var(--hero-ink); }
+  @media (min-width: 820px) { .nav-links { display: flex; } }
+  .theme-btn {
+    background: transparent; border: 1px solid rgba(255,255,255,.18); color: var(--hero-ink);
+    width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: grid; place-items: center;
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border-radius: 999px;
+    font-weight: 500; font-size: .95rem; text-decoration: none; border: 1px solid transparent;
+    transition: transform .15s, background .2s, border-color .2s; cursor: pointer;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+  .btn-gold { background: var(--accent); color: #14213d; }
+  .btn-gold:hover { background: #d3a248; }
+  .btn-ghost { border-color: rgba(255,255,255,.25); color: var(--hero-ink); }
+  .btn-ghost:hover { border-color: var(--hero-ink); }
+
+  /* Hero */
+  .hero { background: var(--hero-bg); color: var(--hero-ink); position: relative; overflow: hidden; }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 48px 48px; mask-image: linear-gradient(to bottom, #000 30%, transparent);
+  }
+  .hero .wrap { position: relative; padding-top: 72px; padding-bottom: 88px; display: grid; grid-template-columns: minmax(0,1fr); gap: 48px; }
+  @media (min-width: 900px) { .hero .wrap { grid-template-columns: 1.4fr 1fr; align-items: center; padding-top: 110px; padding-bottom: 120px; } }
+  .eyebrow { font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); line-height: 1.02; margin: 14px 0 20px; }
+  .hero h1 em { font-style: italic; font-weight: 400; color: var(--accent); }
+  .hero p.lead { color: var(--hero-muted); font-size: 1.1rem; max-width: 34em; margin: 0 0 32px; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .chart-card {
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09); border-radius: 18px; padding: 22px;
+  }
+  .chart-card .label { font-size: .75rem; color: var(--hero-muted); letter-spacing: .08em; text-transform: uppercase; }
+  .chart-card svg { width: 100%; height: auto; display: block; margin: 12px 0 18px; }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .stat { border-top: 1px solid rgba(255,255,255,.12); padding-top: 12px; }
+  .stat b { display: block; font-family: Fraunces, serif; font-size: 1.7rem; font-weight: 600; color: var(--hero-ink); line-height: 1.1; }
+  .stat span { font-size: .78rem; color: var(--hero-muted); }
+  .line-path { stroke-dasharray: 600; stroke-dashoffset: 600; animation: draw 2.2s .3s ease-out forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  /* Sections */
+  section { padding: 88px 0; }
+  .sec-head { margin-bottom: 40px; max-width: 640px; }
+  .sec-head h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); margin-top: 10px; }
+  .sec-head p { color: var(--ink-soft); margin: 12px 0 0; }
+  .alt { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: minmax(0,1fr); gap: 32px; }
+  @media (min-width: 860px) { .about-grid { grid-template-columns: 1.3fr 1fr; gap: 56px; } }
+  .about-grid p { color: var(--ink-soft); font-size: 1.05rem; margin: 0 0 16px; }
+  .focus { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+  .focus li {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 16px 18px; display: flex; gap: 14px; align-items: flex-start;
+  }
+  .alt .focus li { background: var(--bg); }
+  .focus .ic { width: 36px; height: 36px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; flex: none; }
+  .focus .ic svg { width: 18px; height: 18px; }
+  .focus b { display: block; font-weight: 600; }
+  .focus small { color: var(--muted); font-size: .88rem; }
+
+  /* Projects */
+  .projects { display: grid; gap: 20px; }
+  @media (min-width: 820px) { .projects { grid-template-columns: 1fr 1fr; } }
+  .project {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px;
+    box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 14px;
+  }
+  .project .tag { align-self: flex-start; font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); background: var(--accent-soft); padding: 4px 10px; border-radius: 999px; }
+  .project h3 { font-size: 1.35rem; line-height: 1.3; }
+  .project p { color: var(--ink-soft); margin: 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 6px; }
+  .chip { font-size: .8rem; color: var(--ink-soft); border: 1px solid var(--line); border-radius: 999px; padding: 4px 11px; }
+
+  /* Certificates */
+  .certs { display: grid; gap: 22px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .certs { grid-template-columns: 1fr 1fr; } }
+  .cert {
+    background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+    display: flex; flex-direction: column; transition: transform .2s, box-shadow .2s;
+  }
+  .cert:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .cert-thumb { display: block; background: #dfe7ea; aspect-ratio: 1233 / 952; overflow: hidden; border-bottom: 1px solid var(--line); }
+  .cert-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .4s; }
+  .cert:hover .cert-thumb img { transform: scale(1.03); }
+  .cert-body { padding: 20px 22px 22px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .cert-meta { font-size: .8rem; color: var(--muted); display: flex; gap: 10px; flex-wrap: wrap; }
+  .cert h3 { font-size: 1.15rem; line-height: 1.3; }
+  .cert-actions { display: flex; gap: 10px; margin-top: auto; padding-top: 8px; flex-wrap: wrap; }
+  .btn-sm { padding: 9px 15px; font-size: .86rem; }
+  .btn-ink { background: var(--ink); color: var(--bg); }
+  .btn-line { border-color: var(--line); color: var(--ink); }
+  .btn-line:hover { border-color: var(--ink); }
+  .other-certs { margin-top: 36px; padding: 22px 24px; border: 1px dashed var(--line); border-radius: var(--radius); }
+  .other-certs h3 { font-size: 1.05rem; margin-bottom: 10px; }
+  .other-certs ul { margin: 0; padding-left: 18px; color: var(--ink-soft); display: grid; gap: 4px; }
+  .other-certs span { color: var(--muted); }
+
+  /* Skills */
+  .skills { display: grid; gap: 20px; }
+  @media (min-width: 760px) { .skills { grid-template-columns: repeat(2, 1fr); } }
+  .skill-box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; }
+  .skill-box h3 { font-size: 1.05rem; margin-bottom: 14px; font-family: Inter, sans-serif; font-weight: 600; }
+
+  /* Education timeline */
+  .timeline { position: relative; display: grid; gap: 18px; padding-left: 26px; }
+  .timeline::before { content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+  .edu { position: relative; background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
+  .edu::before { content: ""; position: absolute; left: -26px; top: 26px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px var(--surface); }
+  .edu-top { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: baseline; }
+  .edu h3 { font-size: 1.15rem; }
+  .edu .when { font-size: .85rem; color: var(--accent); font-weight: 600; }
+  .edu p { margin: 4px 0 0; color: var(--ink-soft); }
+  .edu small { color: var(--muted); }
+
+  /* Contact */
+  .contact { background: var(--hero-bg); color: var(--hero-ink); text-align: center; }
+  .contact h2 { font-size: clamp(2rem, 5vw, 3.2rem); margin: 12px 0 14px; }
+  .contact p { color: var(--hero-muted); max-width: 520px; margin: 0 auto 32px; }
+  .contact .hero-ctas { justify-content: center; }
+  footer { background: var(--hero-bg); color: var(--hero-muted); font-size: .85rem; text-align: center; padding: 22px 16px 30px; border-top: 1px solid rgba(255,255,255,.07); }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .line-path { animation: none; stroke-dashoffset: 0; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Modal preview */
+  dialog { border: none; padding: 0; border-radius: 16px; max-width: min(960px, 94vw); width: 100%; background: var(--surface); color: var(--ink); box-shadow: 0 30px 80px rgba(0,0,0,.4); }
+  dialog::backdrop { background: rgba(10,16,32,.7); backdrop-filter: blur(3px); }
+  .dlg-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+  .dlg-head h3 { font-size: 1rem; }
+  .dlg-close { background: none; border: none; font-size: 1.6rem; line-height: 1; cursor: pointer; color: var(--ink); }
+  dialog iframe { width: 100%; height: 72vh; border: 0; display: block; background: #fff; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand">Taanvi <span>Sharma</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle dark mode">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">MBA Finance · Lovely Professional University</div>
+      <h1>Turning numbers into <em>clear decisions.</em></h1>
+      <p class="lead">I'm Taanvi, an MBA (Finance) student with a commerce background and research experience in financial statement analysis, capital structure and corporate finance. I'm looking for Financial Analyst, Banking and Corporate Finance roles.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-gold" href="assets/Taanvi-Sharma-CV.pdf" download="Taanvi-Sharma-CV.pdf">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+          Download Resume
+        </a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/taanvi-sharma-558148413" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <div class="chart-card" aria-hidden="true">
+      <div class="label">Learning &amp; growth</div>
+      <svg viewBox="0 0 320 130">
+        <defs>
+          <linearGradient id="g" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#e3b45a" stop-opacity=".35"/>
+            <stop offset="1" stop-color="#e3b45a" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g stroke="rgba(255,255,255,.08)"><line x1="0" y1="30" x2="320" y2="30"/><line x1="0" y1="70" x2="320" y2="70"/><line x1="0" y1="110" x2="320" y2="110"/></g>
+        <path d="M0 112 L40 100 L80 104 L120 84 L160 88 L200 62 L240 54 L280 34 L320 18 L320 130 L0 130Z" fill="url(#g)"/>
+        <path class="line-path" d="M0 112 L40 100 L80 104 L120 84 L160 88 L200 62 L240 54 L280 34 L320 18" fill="none" stroke="#e3b45a" stroke-width="2.5" stroke-linejoin="round"/>
+        <circle cx="320" cy="18" r="4" fill="#e3b45a"/>
+      </svg>
+      <div class="stats">
+        <div class="stat"><b>4</b><span>LinkedIn Learning certificates</span></div>
+        <div class="stat"><b>8h</b><span>of finance coursework</span></div>
+        <div class="stat"><b>2</b><span>research projects</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <div class="eyebrow">About</div>
+      <h2 style="font-size:clamp(1.9rem,4vw,2.6rem);margin:10px 0 20px">Analytical by training, curious by nature.</h2>
+      <p>I'm pursuing an MBA in Finance at Lovely Professional University (2026–2028), after a Bachelor of Commerce from Guru Nanak Dev University.</p>
+      <p>My academic research covers financial statement and ratio analysis, capital structure evaluation and peer benchmarking. I've also worked with government economic data. I want to put that grounding to work in a real finance team and keep building industry experience.</p>
+      <p>I speak English, Hindi and Punjabi, and I like turning complex financial information into a story people can act on.</p>
+    </div>
+    <ul class="focus reveal">
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></span><div><b>Financial Statement Analysis</b><small>Ratio analysis, performance evaluation, multi-year trends</small></div></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><div><b>Corporate Finance</b><small>Capital structure, Pecking Order &amp; Trade-Off theories</small></div></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span><div><b>Excel Modelling &amp; Forecasting</b><small>Dynamic arrays, scenario planning, statement-based forecasts</small></div></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span><div><b>Peer Benchmarking</b><small>Comparative analysis across companies and sectors</small></div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="projects" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Projects</div>
+      <h2>Research &amp; live projects</h2>
+    </div>
+    <div class="projects">
+      <article class="project reveal">
+        <span class="tag">Corporate Finance · LPU</span>
+        <h3>Evolution of Financing Strategy: Five-Year Financial Analysis of Bajaj Auto Limited</h3>
+        <p>Evaluated five years of Bajaj Auto's financial performance and identified the drivers of its revenue growth. Assessed the company's financing decisions against the Pecking Order and Trade-Off theories of capital structure.</p>
+        <div class="chips"><span class="chip">Ratio Analysis</span><span class="chip">Capital Structure</span><span class="chip">Pecking Order Theory</span><span class="chip">Trade-Off Theory</span></div>
+      </article>
+      <article class="project reveal">
+        <span class="tag">Economic Research</span>
+        <h3>Rural vs. Urban Youth Unemployment in India</h3>
+        <p>Analysed Periodic Labour Force Survey (PLFS) data from the Ministry of Statistics and Programme Implementation (MoSPI) to study youth employment trends and the gap between rural and urban India.</p>
+        <div class="chips"><span class="chip">MoSPI PLFS Data</span><span class="chip">Data Interpretation</span><span class="chip">Trend Analysis</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Certificates</div>
+      <h2>Verified learning</h2>
+      <p>Four LinkedIn Learning courses completed in November 2026. Select a card to preview the certificate, or download the PDF.</p>
+    </div>
+    <div class="certs" id="certGrid"></div>
+
+    <div class="other-certs reveal">
+      <h3>Other certifications</h3>
+      <ul>
+        <li>Excel Modelling and Stock Trading <span>· LPU</span></li>
+        <li>Excel Scenario Planning and Analysis <span>· LinkedIn Learning</span></li>
+        <li>AI Literacy Essential Program <span>· EY</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Skills</div>
+      <h2>Toolkit</h2>
+    </div>
+    <div class="skills">
+      <div class="skill-box reveal"><h3>Technical</h3><div class="chips"><span class="chip">Capital Structure Analysis</span><span class="chip">Financial Performance Evaluation</span><span class="chip">Peer Benchmarking</span><span class="chip">Comparative Analysis</span><span class="chip">Financial Modelling</span><span class="chip">Financial Forecasting</span></div></div>
+      <div class="skill-box reveal"><h3>Tools &amp; platforms</h3><div class="chips"><span class="chip">MS Excel</span><span class="chip">MS Office</span><span class="chip">PowerPoint</span><span class="chip">Google Sheets</span><span class="chip">Tally</span><span class="chip">Canva</span></div></div>
+      <div class="skill-box reveal"><h3>Power skills</h3><div class="chips"><span class="chip">Analytical Thinking</span><span class="chip">Communication</span><span class="chip">Adaptability</span><span class="chip">Business Storytelling</span><span class="chip">Presentation Skills</span></div></div>
+      <div class="skill-box reveal"><h3>Languages</h3><div class="chips"><span class="chip">English · Professional</span><span class="chip">Hindi · Native</span><span class="chip">Punjabi · Native</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="alt" style="border-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Education</div>
+      <h2>Academic path</h2>
+    </div>
+    <div class="timeline">
+      <div class="edu reveal"><div class="edu-top"><h3>Lovely Professional University</h3><span class="when">2026 – 2028</span></div><p>Master of Business Administration, Finance (in progress)</p><small>Phagwara, Punjab</small></div>
+      <div class="edu reveal"><div class="edu-top"><h3>Guru Nanak Dev University</h3><span class="when">2023 – 2026</span></div><p>Bachelor of Commerce, CGPA 7.16</p><small>Amritsar, Punjab</small></div>
+      <div class="edu reveal"><div class="edu-top"><h3>Swami Sant Dass Public School</h3><span class="when">2022 – 2023</span></div><p>Intermediate, 90.6%</p><small>Phagwara, Punjab</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow">Contact</div>
+    <h2>Let's talk finance.</h2>
+    <p>I'm open to internships and entry-level roles in financial analysis, banking and corporate finance.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-gold" href="mailto:taanvisharma.work@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
+        taanvisharma.work@gmail.com
+      </a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/taanvi-sharma-558148413" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        Connect on LinkedIn
+      </a>
+      <a class="btn btn-ghost" href="assets/Taanvi-Sharma-CV.pdf" download="Taanvi-Sharma-CV.pdf">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>
+        Resume (PDF)
+      </a>
+    </div>
+  </div>
+</section>
+<footer>© <span id="yr">2026</span> Taanvi Sharma · Phagwara, Punjab, India</footer>
+
+<dialog id="dlg">
+  <div class="dlg-head"><h3 id="dlgTitle">Certificate</h3><button class="dlg-close" id="dlgClose" aria-label="Close">×</button></div>
+  <iframe id="dlgFrame" title="Certificate preview"></iframe>
+</dialog>
+
+<script>
+  const certs = [
+    { slug: "excel-financial-modeling-dynamic-arrays", title: "Excel: Financial Modeling with Dynamic Arrays", date: "Nov 15, 2026", hours: "2h 40m", skills: ["Financial Modeling", "Microsoft Excel"] },
+    { slug: "reading-corporate-financial-statements", title: "Reading Corporate Financial Statements", date: "Nov 15, 2026", hours: "1h 8m", skills: ["Financial Statements"] },
+    { slug: "forecasting-using-financial-statements", title: "Forecasting Using Financial Statements", date: "Nov 15, 2026", hours: "2h 5m", skills: ["Financial Forecasting"] },
+    { slug: "presenting-financial-information", title: "Presenting Financial Information", date: "Nov 15, 2026", hours: "2h 4m", skills: ["Business Storytelling", "Financial Accounting", "Presentation Skills"] }
+  ];
+  const dl = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M5 21h14"/></svg>';
+  const eye = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+  document.getElementById("certGrid").innerHTML = certs.map(c => {
+    const pdf = `assets/certificates/${c.slug}.pdf`;
+    return `<article class="cert reveal">
+      <a class="cert-thumb" href="${pdf}" data-preview="${pdf}" data-title="${c.title}">
+        <img src="assets/thumbs/${c.slug}.png" alt="${c.title} certificate" loading="lazy" width="740" height="571">
+      </a>
+      <div class="cert-body">
+        <div class="cert-meta"><span>LinkedIn Learning</span><span>·</span><span>${c.date}</span><span>·</span><span>${c.hours}</span></div>
+        <h3>${c.title}</h3>
+        <div class="chips">${c.skills.map(s => `<span class="chip">${s}</span>`).join("")}</div>
+        <div class="cert-actions">
+          <a class="btn btn-sm btn-ink" href="${pdf}" download>${dl} Download PDF</a>
+          <a class="btn btn-sm btn-line" href="${pdf}" data-preview="${pdf}" data-title="${c.title}">${eye} View</a>
+        </div>
+      </div>
+    </article>`;
+  }).join("");
+
+  // Preview modal (falls back to opening the PDF on small screens)
+  const dlg = document.getElementById("dlg"), frame = document.getElementById("dlgFrame");
+  document.addEventListener("click", e => {
+    const a = e.target.closest("[data-preview]");
+    if (!a) return;
+    if (window.innerWidth < 720 || !dlg.showModal) { a.target = "_blank"; return; }
+    e.preventDefault();
+    document.getElementById("dlgTitle").textContent = a.dataset.title;
+    frame.src = a.dataset.preview + "#view=FitH&toolbar=0";
+    dlg.showModal();
+  });
+  document.getElementById("dlgClose").onclick = () => dlg.close();
+  dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener("close", () => { frame.src = "about:blank"; });
+
+  // Theme toggle
+  const root = document.documentElement;
+  try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (_) {}
+  document.getElementById("themeBtn").onclick = () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    try { localStorage.setItem("theme", root.dataset.theme); } catch (_) {}
+  };
+
+  // Scroll reveal
+  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } }), { threshold: .12 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+  document.getElementById("yr").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
